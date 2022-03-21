@@ -2,14 +2,6 @@
 
 Functional programming for [Fish](https://fishshell.com/).
 
-```
-~> @map (@lambda curl -sI) c.cc t.tt | @match server
-Server: Apache/2.2.34 (Amazon)
-Server: nginx/1.14.1
-```
-
-You can replicate this trivial example with `echo c.cc t.tt | xargs curl -sI | grep -i server`, but `xargs` only works with executables, not Fish functions.
-
 ## Installation
 
 - [plug.fish](https://github.com/kidonng/plug.fish)
@@ -26,6 +18,29 @@ You can replicate this trivial example with `echo c.cc t.tt | xargs curl -sI | g
 
 ## Functions
 
-- `@lambda`: create one-off functions
-- `@map`: _does exactly what it says on the tin_
-- `@match`: alias for `string match -i`
+### `@lambda`: create one-off functions
+
+```fish
+~> @lambda seq 2
+_lambda_1
+
+~> _lambda_1 4 # same as `seq 2 4`
+2
+3
+4
+```
+
+### `@map`: _does exactly what it says on the tin_
+
+```fish
+~> @map math 1+1 2+2
+2
+4
+```
+
+### `@match`: alias for `string match -i`
+
+```fish
+~> printf %s\n foo bar | @match o
+foo
+```
