@@ -44,3 +44,11 @@ _lambda_1
 ~> printf %s\n foo bar | @match o
 foo
 ```
+
+### `@xargs`: `xargs` for fish functions
+
+```fish
+~> echo 1+1 2+2 | @xargs math
+2
+4
+```
