@@ -1,5 +1,5 @@
 function @xargs
-    read -la stdin
+    read -laz stdin
 
     for stdin_arg in $stdin
         $argv $stdin_arg
